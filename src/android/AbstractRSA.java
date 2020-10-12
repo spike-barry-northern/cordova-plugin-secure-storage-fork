@@ -102,6 +102,9 @@ public abstract class AbstractRSA {
             decrypt(encrypted, alias);
             return false;
         } catch (InvalidKeyException noAuthEx) {
+			KeyStore keyStore = KeyStore.getInstance(KEYSTORE_PROVIDER);
+			keyStore.load(null, null);
+			keyStore.deleteEntry(alias);
             return true;
         } catch (Exception e) {
             // Other
