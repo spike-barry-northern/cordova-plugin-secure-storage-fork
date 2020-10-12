@@ -56,7 +56,12 @@ public class SecureStorage extends CordovaPlugin {
                     public void run() {
                         if (unlockCredentialsContext != null) {
                             String alias = service2alias(INIT_SERVICE);
-                            if (rsa.userAuthenticationRequired(alias)) {
+                            try {
+                                if (rsa.userAuthenticationRequired(alias)) {
+                                    unlockCredentialsContext.error("User not authenticated");
+                                }
+                            }
+                            catch(Exception ex) {
                                 unlockCredentialsContext.error("User not authenticated");
                             }
                             unlockCredentialsContext.success();
@@ -111,7 +116,7 @@ public class SecureStorage extends CordovaPlugin {
                 if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
                     unlockCredentialsLegacy();
                 }
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && rsa.userAuthenticationRequired(alias)) {
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && userAuthenticationRequired(alias)) {
                 // User has to confirm authentication via device credentials.
                 String title = options.optString("unlockCredentialsTitle", null);
                 String description = options.optString("unlockCredentialsDescription", null);
@@ -201,6 +206,15 @@ public class SecureStorage extends CordovaPlugin {
         }
         return false;
     }
+
+    private boolean userAuthenticationRequired(String alias) {
+        try {
+            return rsa.userAuthenticationRequired(alias);
+        }
+        catch(Exception ex) {
+            return true;
+        }
+    } 
 
     private boolean isDeviceSecure() {
         KeyguardManager keyguardManager = (KeyguardManager) (getContext().getSystemService(Context.KEYGUARD_SERVICE));

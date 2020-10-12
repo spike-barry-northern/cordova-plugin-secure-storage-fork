@@ -95,7 +95,7 @@ public abstract class AbstractRSA {
         return key;
     }
 
-    boolean userAuthenticationRequired(String alias) {
+    boolean userAuthenticationRequired(String alias) throws Exception  {
         try {
             // Do a quick encrypt/decrypt test
             byte[] encrypted = encrypt(alias.getBytes(), alias);
