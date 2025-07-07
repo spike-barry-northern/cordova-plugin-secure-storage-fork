@@ -2,7 +2,7 @@
 #import <Security/Security.h>
 #import "SecureStorage.h"
 #import <Cordova/CDV.h>
-#import "SAMKeychain.h"
+#import "SecureStorageSAMKeychain.h"
 
 @implementation SecureStorage
 
@@ -34,7 +34,7 @@
     } else {
         if ([keychainAccesssibilityMapping objectForKey:(keychainAccessibility)] != nil) {
             accessibility = (__bridge CFTypeRef)([keychainAccesssibilityMapping objectForKey:(keychainAccessibility)]);
-            [SAMKeychain setAccessibilityType:accessibility];
+            [SecureStorageSAMKeychain setAccessibilityType:accessibility];
             [self successWithMessage: nil : command.callbackId];
         } else {
             [self failWithMessage: @"Unrecognized KeychainAccessibility value in config" : nil : command.callbackId];
@@ -49,7 +49,7 @@
     [self.commandDelegate runInBackground:^{
         NSError *error;
 
-        SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
+        SecureStorageSAMKeychainQuery *query = [[SecureStorageSAMKeychainQuery alloc] init];
         query.service = service;
         query.account = key;
 
@@ -69,7 +69,7 @@
     [self.commandDelegate runInBackground:^{
         NSError *error;
 
-        SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
+        SecureStorageSAMKeychainQuery *query = [[SecureStorageSAMKeychainQuery alloc] init];
         query.service = service;
         query.account = key;
         query.password = value;
@@ -89,7 +89,7 @@
     [self.commandDelegate runInBackground:^{
         NSError *error;
 
-        SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
+        SecureStorageSAMKeychainQuery *query = [[SecureStorageSAMKeychainQuery alloc] init];
         query.service = service;
         query.account = key;
 
@@ -107,7 +107,7 @@
     [self.commandDelegate runInBackground:^{
         NSError *error;
 
-        SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
+        SecureStorageSAMKeychainQuery *query = [[SecureStorageSAMKeychainQuery alloc] init];
         query.service = service;
 
         NSArray *accounts = [query fetchAll:&error];
@@ -134,7 +134,7 @@
     [self.commandDelegate runInBackground:^{
         NSError *error;
 
-        SAMKeychainQuery *query = [[SAMKeychainQuery alloc] init];
+        SecureStorageSAMKeychainQuery *query = [[SecureStorageSAMKeychainQuery alloc] init];
         query.service = service;
 
         NSArray *accounts = [query fetchAll:&error];

@@ -32,12 +32,12 @@
         <source-file src="src/ios/SecureStorage.m" />
         <header-file src="src/ios/SecureStorage.h" />
 
-        <source-file src="src/ios/SAMKeychain/SAMKeychain.m" />
-        <header-file src="src/ios/SAMKeychain/SAMKeychain.h" />
-        <source-file src="src/ios/SAMKeychain/SAMKeychainQuery.m" />
-        <header-file src="src/ios/SAMKeychain/SAMKeychainQuery.h" />
+        <source-file src="src/ios/SecureStorageSAMKeychain/SecureStorageSAMKeychain.m" />
+        <header-file src="src/ios/SecureStorageSAMKeychain/SecureStorageSAMKeychain.h" />
+        <source-file src="src/ios/SecureStorageSAMKeychain/SecureStorageSAMKeychainQuery.m" />
+        <header-file src="src/ios/SecureStorageSAMKeychain/SecureStorageSAMKeychainQuery.h" />
 
-        <resource-file src="src/ios/SAMKeychain/SAMKeychain.bundle" />
+        <resource-file src="src/ios/SecureStorageSAMKeychain/SecureStorageSAMKeychain.bundle" />
 
         <framework src="Security.framework" />
 

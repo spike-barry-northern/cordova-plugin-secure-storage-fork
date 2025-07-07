@@ -1,15 +1,15 @@
 //
-//  SAMKeychainQuery.m
-//  SAMKeychain
+//  SecureStorageSAMKeychainQuery.m
+//  SecureStorageSAMKeychain
 //
 //  Created by Caleb Davenport on 3/19/13.
 //  Copyright (c) 2013-2014 Sam Soffes. All rights reserved.
 //
 
-#import "SAMKeychainQuery.h"
-#import "SAMKeychain.h"
+#import "SecureStorageSAMKeychainQuery.h"
+#import "SecureStorageSAMKeychain.h"
 
-@implementation SAMKeychainQuery
+@implementation SecureStorageSAMKeychainQuery
 
 @synthesize account = _account;
 @synthesize service = _service;
@@ -41,7 +41,7 @@
 		query = [[NSMutableDictionary alloc]init];
 		[query setObject:self.passwordData forKey:(__bridge id)kSecValueData];
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
-		CFTypeRef accessibilityType = [SAMKeychain accessibilityType];
+		CFTypeRef accessibilityType = [SecureStorageSAMKeychain accessibilityType];
 		if (accessibilityType) {
 			[query setObject:(__bridge id)accessibilityType forKey:(__bridge id)kSecAttrAccessible];
 		}
@@ -54,7 +54,7 @@
 		}
 		[query setObject:self.passwordData forKey:(__bridge id)kSecValueData];
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
-		CFTypeRef accessibilityType = [SAMKeychain accessibilityType];
+		CFTypeRef accessibilityType = [SecureStorageSAMKeychain accessibilityType];
 		if (accessibilityType) {
 			[query setObject:(__bridge id)accessibilityType forKey:(__bridge id)kSecAttrAccessible];
 		}
@@ -111,7 +111,7 @@
 	[query setObject:@YES forKey:(__bridge id)kSecReturnAttributes];
 	[query setObject:(__bridge id)kSecMatchLimitAll forKey:(__bridge id)kSecMatchLimit];
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
-	CFTypeRef accessibilityType = [SAMKeychain accessibilityType];
+	CFTypeRef accessibilityType = [SecureStorageSAMKeychain accessibilityType];
 	if (accessibilityType) {
 		[query setObject:(__bridge id)accessibilityType forKey:(__bridge id)kSecAttrAccessible];
 	}
@@ -251,54 +251,54 @@
 	static dispatch_once_t onceToken;
 	static NSBundle *resourcesBundle = nil;
 	dispatch_once(&onceToken, ^{
-		NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"SAMKeychain" withExtension:@"bundle"];
+		NSURL *url = [[NSBundle bundleForClass:[self class]] URLForResource:@"SecureStorageSAMKeychain" withExtension:@"bundle"];
 		resourcesBundle = [NSBundle bundleWithURL:url];
 	});
 	
 	NSString *message = nil;
 	switch (code) {
 		case errSecSuccess: return nil;
-		case SAMKeychainErrorBadArguments: message = NSLocalizedStringFromTableInBundle(@"SAMKeychainErrorBadArguments", @"SAMKeychain", resourcesBundle, nil); break;
+		case SAMKeychainErrorBadArguments: message = NSLocalizedStringFromTableInBundle(@"SAMKeychainErrorBadArguments", @"SecureStorageSAMKeychain", resourcesBundle, nil); break;
 
 #if TARGET_OS_IPHONE
 		case errSecUnimplemented: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecUnimplemented", @"SAMKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecUnimplemented", @"SecureStorageSAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecParam: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecParam", @"SAMKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecParam", @"SecureStorageSAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecAllocate: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecAllocate", @"SAMKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecAllocate", @"SecureStorageSAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecNotAvailable: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecNotAvailable", @"SAMKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecNotAvailable", @"SecureStorageSAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecDuplicateItem: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecDuplicateItem", @"SAMKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecDuplicateItem", @"SecureStorageSAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecItemNotFound: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecItemNotFound", @"SAMKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecItemNotFound", @"SecureStorageSAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecInteractionNotAllowed: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecInteractionNotAllowed", @"SAMKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecInteractionNotAllowed", @"SecureStorageSAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecDecode: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecDecode", @"SAMKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecDecode", @"SecureStorageSAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		case errSecAuthFailed: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecAuthFailed", @"SAMKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecAuthFailed", @"SecureStorageSAMKeychain", resourcesBundle, nil);
 			break;
 		}
 		default: {
-			message = NSLocalizedStringFromTableInBundle(@"errSecDefault", @"SAMKeychain", resourcesBundle, nil);
+			message = NSLocalizedStringFromTableInBundle(@"errSecDefault", @"SecureStorageSAMKeychain", resourcesBundle, nil);
 		}
 #else
 		default:

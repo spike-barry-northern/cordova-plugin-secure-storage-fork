@@ -1,6 +1,6 @@
 //
-//  SAMKeychain.h
-//  SAMKeychain
+//  SecureStorageSAMKeychain.h
+//  SecureStorageSAMKeychain
 //
 //  Created by Sam Soffes on 5/19/10.
 //  Copyright (c) 2010-2014 Sam Soffes. All rights reserved.
@@ -22,7 +22,7 @@ typedef NS_ENUM(OSStatus, SAMKeychainErrorCode) {
 	SAMKeychainErrorBadArguments = -1001,
 };
 
-/** SAMKeychain error domain */
+/** SecureStorage error domain */
 extern NSString *const kSAMKeychainErrorDomain;
 
 /** Account name. */
@@ -58,9 +58,9 @@ extern NSString *const kSAMKeychainWhereKey;
  Keychain on Mac OS X and iOS.
 
  This was originally inspired by EMKeychain and SDKeychain (both of which are now gone). Thanks to the authors.
- SAMKeychain has since switched to a simpler implementation that was abstracted from [SSToolkit](http://sstoolk.it).
+ SecureStorageSAMKeychain has since switched to a simpler implementation that was abstracted from [SSToolkit](http://sstoolk.it).
  */
-@interface SAMKeychain : NSObject
+@interface SecureStorageSAMKeychain : NSObject
 
 #pragma mark - Classic methods
 
@@ -196,4 +196,4 @@ extern NSString *const kSAMKeychainWhereKey;
 
 @end
 
-#import "SAMKeychainQuery.h"
+#import "SecureStorageSAMKeychainQuery.h"
