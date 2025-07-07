@@ -23,35 +23,35 @@ typedef NS_ENUM(OSStatus, SAMKeychainErrorCode) {
 };
 
 /** SecureStorage error domain */
-extern NSString *const kSAMKeychainErrorDomain;
+extern NSString *const kSecureStorageSAMKeychainErrorDomain;
 
 /** Account name. */
-extern NSString *const kSAMKeychainAccountKey;
+extern NSString *const kSecureStorageSAMKeychainAccountKey;
 
 /**
  Time the item was created.
 
  The value will be a string.
  */
-extern NSString *const kSAMKeychainCreatedAtKey;
+extern NSString *const kSecureStorageSAMKeychainCreatedAtKey;
 
 /** Item class. */
-extern NSString *const kSAMKeychainClassKey;
+extern NSString *const kSecureStorageSAMKeychainClassKey;
 
 /** Item description. */
-extern NSString *const kSAMKeychainDescriptionKey;
+extern NSString *const kSecureStorageSAMKeychainDescriptionKey;
 
 /** Item label. */
-extern NSString *const kSAMKeychainLabelKey;
+extern NSString *const kSecureStorageSAMKeychainLabelKey;
 
 /** Time the item was last modified.
 
  The value will be a string.
  */
-extern NSString *const kSAMKeychainLastModifiedKey;
+extern NSString *const kSecureStorageSAMKeychainLastModifiedKey;
 
 /** Where the item was created. */
-extern NSString *const kSAMKeychainWhereKey;
+extern NSString *const kSecureStorageSAMKeychainWhereKey;
 
 /**
  Simple wrapper for accessing accounts, getting passwords, setting passwords, and deleting passwords using the system

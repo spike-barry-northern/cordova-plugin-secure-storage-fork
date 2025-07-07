@@ -310,7 +310,7 @@
 	if (message) {
 		userInfo = @{ NSLocalizedDescriptionKey : message };
 	}
-	return [NSError errorWithDomain:kSAMKeychainErrorDomain code:code userInfo:userInfo];
+	return [NSError errorWithDomain:kSecureStorageSAMKeychainErrorDomain code:code userInfo:userInfo];
 }
 
 @end

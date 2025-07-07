@@ -9,14 +9,14 @@
 #import "SecureStorageSAMKeychain.h"
 #import "SecureStorageSAMKeychainQuery.h"
 
-NSString *const kSAMKeychainErrorDomain = @"com.samsoffes.samkeychain";
-NSString *const kSAMKeychainAccountKey = @"acct";
-NSString *const kSAMKeychainCreatedAtKey = @"cdat";
-NSString *const kSAMKeychainClassKey = @"labl";
-NSString *const kSAMKeychainDescriptionKey = @"desc";
-NSString *const kSAMKeychainLabelKey = @"labl";
-NSString *const kSAMKeychainLastModifiedKey = @"mdat";
-NSString *const kSAMKeychainWhereKey = @"svce";
+NSString *const kSecureStorageSAMKeychainErrorDomain = @"com.samsoffes.samkeychain";
+NSString *const kSecureStorageSAMKeychainAccountKey = @"acct";
+NSString *const kSecureStorageSAMKeychainCreatedAtKey = @"cdat";
+NSString *const kSecureStorageSAMKeychainClassKey = @"labl";
+NSString *const kSecureStorageSAMKeychainDescriptionKey = @"desc";
+NSString *const kSecureStorageSAMKeychainLabelKey = @"labl";
+NSString *const kSecureStorageSAMKeychainLastModifiedKey = @"mdat";
+NSString *const kSecureStorageSAMKeychainWhereKey = @"svce";
 
 #if __IPHONE_4_0 && TARGET_OS_IPHONE
 	static CFTypeRef SAMKeychainAccessibilityType = NULL;
